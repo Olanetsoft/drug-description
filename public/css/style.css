@@ -419,9 +419,9 @@ button:focus {
 ============================================================================================ */
 .home_banner_area {
   z-index: 1;
-  min-height: 900px;
+  min-height: 750px;
   display: flex;
-  background: url(../img/banner/home-banner.jpg) no-repeat scroll center center;
+  background: url(../img/banner/banner-bg.jpg) no-repeat scroll center center;
   background-size: cover; }
   .home_banner_area .banner_inner {
     width: 100%;
@@ -430,14 +430,14 @@ button:focus {
       vertical-align: middle;
       align-self: center; }
     .home_banner_area .banner_inner .banner_content {
-      color: #fff; }
+      color: #000; }
       .home_banner_area .banner_inner .banner_content h2 {
         margin-top: 0px;
         font-size: 48px;
         font-weight: 700;
         font-family: "Playfair Display", serif;
         line-height: 54px;
-        color: #fff; }
+        color: blue; }
       .home_banner_area .banner_inner .banner_content p {
         max-width: 680px;
         font-size: 16px;

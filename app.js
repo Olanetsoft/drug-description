@@ -11,6 +11,9 @@ const csrfProtection = csrf();
 // requiring the cookie parser
 const cookieParser = require('cookie-parser');
 
+// Require all routes
+const auth = require('./routes/auth');
+
 
 
 
@@ -75,6 +78,8 @@ app.use((req, res, next) => {
 
 
 // ************ REGISTER ROUTES HERE ********** //
+
+app.use(auth);
 
 
 // ************ END ROUTE REGISTRATION ********** //
