@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server",
+    "dev": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +21,10 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
     "dotenv": "^8.2.0",
@@ -26,10 +32,12 @@
     "express": "^4.17.1",
     "express-validator": "^6.6.1",
     "flash": "^1.1.0",
+    "helmet": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
     "marked": "^1.1.1",
     "mongoose": "^5.10.0",
     "mongoose-slug-generator": "^1.0.4",
+    "morgan": "^1.10.0",
     "nodemailer": "^6.4.11",
     "nodemon": "^2.0.4",
     "slugify": "^1.4.5"
