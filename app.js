@@ -6,18 +6,21 @@ const cookieSession = require('cookie-session');
 const flash = require("connect-flash");
 const csrf = require('csurf');
 
-const csrfProtection = csrf();
+
 
 // requiring the cookie parser
 const cookieParser = require('cookie-parser');
 
 // Require all routes
 const auth = require('./routes/auth');
+const indexRouter = require('./routes');
 
 
 
 
 const app = express();
+
+const csrfProtection = csrf();
 
 app.use(
     cookieSession({
@@ -33,6 +36,11 @@ app.use(
         extended: false,
     })
 );
+
+
+// Middleware registered
+// Body parser, reading data from body into req.body
+app.use(express.json({ limit: '10kb' }));
 
 
 // setting the view engine
@@ -55,11 +63,6 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 };
 
-// Middleware registered
-// Body parser, reading data from body into req.body
-app.use(express.json({ limit: '10kb' }));
-
-app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
@@ -80,6 +83,7 @@ app.use((req, res, next) => {
 // ************ REGISTER ROUTES HERE ********** //
 
 app.use(auth);
+app.use(indexRouter);
 
 
 // ************ END ROUTE REGISTRATION ********** //

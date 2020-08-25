@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login V1</title>
+    <title>Register</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -36,24 +36,37 @@
                     <img src="/img/img-01.png" alt="IMG">
                 </div>
 
-                <form class="login100-form validate-form">
+                <% if (errorMessage) { %>
+                <div role="alert" class="alert alert-danger user-message user-message--error">
+                    <%= errorMessage %>
+                </div>
+                <% }if (success && success.length > 0) { %>
+                <div role="alert" class="alert alert-success user-message">
+                    <%= success %>
+                </div>
+                <% } %>
+                <form class="login100-form validate-form" action="" method="POST" novalidate>
                     <span class="login100-form-title">
                         Sign Up
                     </span>
 
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
                     <div class="wrap-input100 validate-input" data-validate="First Name is required">
-                        <input class="input100" type="text" name="firstName" placeholder="First Name">
+                        <input class="input100" type="text" name="firstName" placeholder="First Name"
+                            value="<%- oldInput.firstName %>" autocapitalize="on" autocomplete="name">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <i class="fa fa-male" aria-hidden="true"></i>
                         </span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Last Name is required">
-                        <input class="input100" type="text" name="lastName" placeholder="Last Name">
+                        <input class="input100" type="text" name="lastName" placeholder="Last Name" autocapitalize="on"
+                            autocomplete="family-name" minlength="2" value="<%- oldInput.lastName %>">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <i class="fa fa-male" aria-hidden="true"></i>
                         </span>
                     </div>
                     <!-- 
@@ -66,7 +79,8 @@
                     </div> -->
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email" placeholder="Email">
+                        <input class="input100" type="text" name="email" placeholder="Email" autocomplete="email"
+                            value="<%- oldInput.email %>">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -74,7 +88,8 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
+                        <input class="input100" type="password" name="password" placeholder="Password"
+                            autocomplete="new-password" minlength="8">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
