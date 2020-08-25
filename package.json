@@ -1,0 +1,48 @@
+{
+  "name": "drug-description",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olanetsoft/drug-description.git"
+  },
+  "author": "Idris Olubisi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Olanetsoft/drug-description/issues"
+  },
+  "homepage": "https://github.com/Olanetsoft/drug-description#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "flash": "^1.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "marked": "^1.1.1",
+    "mongoose": "^5.10.0",
+    "mongoose-slug-generator": "^1.0.4",
+    "nodemailer": "^6.4.11",
+    "nodemon": "^2.0.4",
+    "slugify": "^1.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0",
+    "prettier": "^2.0.5"
+  }
+}
