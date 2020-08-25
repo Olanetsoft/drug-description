@@ -36,19 +36,20 @@
                     <img src="/img/img-01.png" alt="IMG">
                 </div>
 
-                <% if (errorMessage) { %>
-                <div role="alert" class="alert alert-danger user-message user-message--error">
-                    <%= errorMessage %>
-                </div>
-                <% }if (success && success.length > 0) { %>
-                <div role="alert" class="alert alert-success user-message">
-                    <%= success %>
-                </div>
-                <% } %>
+
                 <form class="login100-form validate-form" action="" method="POST" novalidate>
                     <span class="login100-form-title">
                         Sign Up
                     </span>
+                    <% if (errorMessage) { %>
+                    <div role="alert" class="alert alert-danger user-message user-message--error">
+                        <%= errorMessage %>
+                    </div>
+                    <% }if (success && success.length > 0) { %>
+                    <div role="alert" class="alert alert-success user-message">
+                        <%= success %>
+                    </div>
+                    <% } %>
 
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 

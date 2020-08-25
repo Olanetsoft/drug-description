@@ -40,7 +40,9 @@ body, html {
 }
 
 /*---------------------------------------------*/
-
+.alert {
+  display:inline-block;
+}
 
 a {
 	font-family: Poppins-Regular;
