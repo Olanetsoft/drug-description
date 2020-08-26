@@ -16,7 +16,6 @@ const cookieParser = require('cookie-parser');
 const auth = require('./routes/auth');
 const indexRouter = require('./routes');
 const Prescription = require('./models/prescription');
-const User = require('./models/user');
 const sendEmail = require('./utils/send-email');
 
 
@@ -92,6 +91,12 @@ app.use(indexRouter);
 
 // ************ END ROUTE REGISTRATION ********** //
 
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+    const error = new Error('Not found');
+    error.status = 404;
+    next(error);
+});
 
 // Reminder every 6hrs
 cron.schedule('* */6 * * *', async () => {
