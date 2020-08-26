@@ -39,9 +39,9 @@
                                         <th scope="col">Drug Name</th>
                                         <th scope="col">Usage (Daily)</th>
                                         <th scope="col">Duration (Days)</th>
-                                        <th scope="col">Date Added</th>
+                                        <th scope="col">Date & Time Added</th>
                                         <th scope="col">Action</th>
-                                        <th scope="col">Verify</th>
+                                        <th scope="col">Verification</th>
                                     </tr>
                                 </thead>
 
@@ -52,14 +52,14 @@
                                         <td><%= u.drugName %></td>
                                         <td><%= u.usage %></td>
                                         <td><%= u.duration %></td>
-                                        <td><%= u.createdAt.toLocaleDateString()%></td>
+                                        <td><%= u.createdAt.toLocaleString()%></td>
                                         <td>
                                             <a onclick='toRemove("<%= u._id %>", "<%= u.drugName %>", "<%= csrfToken %>")'
                                                 href="#" class="btn btn-danger">Remove</a>
                                         </td>
                                         <td>
                                             <a onclick='toVerify("<%= u._id %>", "<%= u.drugName %>", "<%= csrfToken %>")'
-                                                href="#" class="btn btn-success">Completed</a>
+                                                href="#" class="btn btn-success">Verify Usage</a>
                                         </td>
 
                                     </tr>
