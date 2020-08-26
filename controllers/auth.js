@@ -31,7 +31,7 @@ const postUserRegister = async (req, res) => {
             try {
                 const saveUser = await userCreate({ ...userDetails, password: hashedPassword });
                 if (saveUser) {
-                    const message = `Welcome to Medicare \n kindly click this <a href="https://medical-prescription.herokuapp.com/">link to continue</a>`;
+                    const message = 'Welcome to Medicare <br> kindly click this <a href="https://medical-prescription.herokuapp.com/">Visit Site</a>';
                     sendEmail({
                         email,
                         subject: 'WELCOME',

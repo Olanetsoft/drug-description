@@ -51,7 +51,8 @@ const postPrescription = async (req, res, next) => {
             drugName,
             usage,
             duration,
-            creator: findUser
+            creator: findUser,
+            userEmail: findUser.email
         };
 
         // Create prescription
