@@ -42,12 +42,10 @@ const userSchema = new Schema({
         type: String,
         default: 'true'
     },
-    // resetToken: String,
-    // resetTokenExpiration: Date,
-    // posts: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Post'
-    // }],
+    prescription: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Prescription'
+      }],
 
 }, { timestamps: true });
 

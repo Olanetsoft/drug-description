@@ -47,21 +47,26 @@
                                 </thead>
 
                                 <tbody>
+                                    <% if (data.length > 0 ) { %>
+                                    <% data.forEach(u => { %>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td>Paracetamol</td>
-                                        <td>2 daily</td>
-                                        <td>3</td>
-                                        <td>Helen Bennett</td>
+                                        <td><%= u.drugName %></td>
+                                        <td><%= u.usage %></td>
+                                        <td><%= u.duration %></td>
+                                        <td><%= u.createdAt.toLocaleDateString()%></td>
                                         <td>
-                                            <a onclick='' href="#" class="btn btn-danger">Remove</a>
+                                            <a onclick='toRemove("<%= u._id %>", "<%= u.drugName %>", "<%= csrfToken %>")'
+                                                href="#" class="btn btn-danger">Remove</a>
                                         </td>
                                         <td>
-                                            <a onclick='' href="#" class="btn btn-success">Completed</a>
+                                            <a onclick='toVerify("<%= u._id %>", "<%= u.drugName %>", "<%= csrfToken %>")'
+                                                href="#" class="btn btn-success">Completed</a>
                                         </td>
 
                                     </tr>
-
+                                    <% }) %>
+                                    <% } %>
                                 </tbody>
 
                             </table>
@@ -96,9 +101,8 @@
     <script>
         $(document).ready(function () {
             console.log("i enter")
-            $('#postsTable').DataTable();
-        });
-    </script>
+            $(' #postsTable').DataTable();
+        }); </script>
     <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
     <script src="/js/pres.js"></script>
 

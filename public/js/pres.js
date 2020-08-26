@@ -1,6 +1,6 @@
-function toBlock(userId, userName, csrf) {
+function toRemove(prescriptionId, drugName, csrf) {
     swal({
-        title: `Are you sure you want to Block ${userName}?`,
+        title: `Are you sure you want to Remove ${drugName}?`,
         type: 'error',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -8,29 +8,29 @@ function toBlock(userId, userName, csrf) {
         cancelButtonText: 'No.',
     }).then(async (result) => {
         if (result.value) {
-            await fetch(`/admin/block/${userId}`, {
+            await fetch(`/remove/${prescriptionId}`, {
                 method: 'PATCH',
                 headers: {
-                    
+
                     'X-CSRF-TOKEN': csrf,
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
             });
             swal({
-                title: 'Blocked!',
-                text: `You have successfully Blocked ${userName} from Super Nigeria platform`,
+                title: 'Removed!',
+                text: `You have successfully Removed ${drugName} from your List`,
                 type: 'success',
             }).then(() => {
-                window.location = '/admin/dashboard/users';
+                window.location = '/all-prescription';
             });
 
         }
     });
-}
+};
 
-function toUnBlock(userId, userName, csrf) {
+function toVerify(prescriptionId, drugName, csrf) {
     swal({
-        title: `Are you sure you want to Unblock ${userName}?`,
+        title: `Are you sure you have completed ${drugName}?`,
         type: 'error',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -38,21 +38,23 @@ function toUnBlock(userId, userName, csrf) {
         cancelButtonText: 'No.',
     }).then(async (result) => {
         if (result.value) {
-            await fetch(`/admin/unblock/${userId}`, {
+            await fetch(`/verify/${prescriptionId}`, {
                 method: 'PATCH',
                 headers: {
+
                     'X-CSRF-TOKEN': csrf,
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
             });
             swal({
-                title: 'Un-Blocked!',
-                text: `You have successfully Unblocked ${userName} from Super Nigeria platform`,
+                title: 'Completed!',
+                text: `You have successfully Completed ${drugName}`,
                 type: 'success',
             }).then(() => {
-                window.location = '/admin/dashboard/users';
+                window.location = '/all-prescription';
             });
 
         }
     });
-}
+};
+
