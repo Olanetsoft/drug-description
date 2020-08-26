@@ -35,7 +35,7 @@ const postUserRegister = async (req, res) => {
                     req.session.user = saveUser;
                     req.session.createdAt = Date.now();
                     req.session.isLoggedIn = true;
-                    console.log(user);
+                    // console.log(user);
                     return res.redirect('/');
                 }
             } catch (error) {
@@ -57,7 +57,7 @@ const postUserLogin = async (req, res, next) => {
 
     await userCheck(email)
         .then(async (user) => {
-            console.log(user);
+            // console.log(user);
             if (!user) {
                 return errorUserLogin(req, res, email, password, 'Invalid email or password.',);
             };
