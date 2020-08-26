@@ -6,7 +6,7 @@
     <!-- Datatable CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-    <style>
+    <!-- <style>
         #postsTable {
             counter-reset: serial-number;
             /* Set the serial number counter to 0 */
@@ -18,7 +18,7 @@
             content: counter(serial-number);
             /* Display the counter */
         }
-    </style>
+    </style> -->
 </head>
 
 
@@ -36,7 +36,6 @@
                             <table class="table table-striped table-bordered" style="width:100%" id="postsTable">
                                 <thead class="bg-primary">
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Drug Name</th>
                                         <th scope="col">Usage (Daily)</th>
                                         <th scope="col">Duration (Days)</th>
@@ -50,7 +49,6 @@
                                     <% if (data.length > 0 ) { %>
                                     <% data.forEach(u => { %>
                                     <tr>
-                                        <td>&nbsp;</td>
                                         <td><%= u.drugName %></td>
                                         <td><%= u.usage %></td>
                                         <td><%= u.duration %></td>
