@@ -142,7 +142,7 @@ const logout = (req, res) => {
     if (req.session.isLoggedIn) {
         req.session = null;
     };
-    res.redirect('/login');
+    res.redirect('/');
 };
 
 module.exports = {
