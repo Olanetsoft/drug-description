@@ -120,7 +120,7 @@ cron.schedule('* */6 * * *', async () => {
     const findAll = await Prescription.find().populate('creator');
     findAll.forEach(p => {
         if (p.creator.email === p.userEmail && p.verify !== 'true') {
-            const message = `Hello there ! <br> This is a Reminder message to take your <b> ${p.drugName}</b> drug as prescribe by Doctor / physician`;
+            const message = `Hello there ! <br> <br> This is a Reminder message to take your <b> ${p.drugName}</b> drug as prescribe by Doctor / physician`;
 
             sendEmail({
                 email: p.creator.email,
