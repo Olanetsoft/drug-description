@@ -85,7 +85,7 @@ const postUserLogin = async (req, res, next) => {
                 })
                 .catch(() => {
                     console.log('invalid user')
-                    return res.redirect('/login');
+                    res.redirect('/login');
             });
         })
         .catch(err => {
