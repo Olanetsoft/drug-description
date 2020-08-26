@@ -99,9 +99,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((error, req, res,) => {
-
-    // next();
+app.use((error, req, res, next) => {
     if (error.status === 404) {
         console.log(error.status);
         res.status(404).render('pages/error404');
