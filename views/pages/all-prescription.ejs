@@ -6,19 +6,6 @@
     <!-- Datatable CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-    <!-- <style>
-        #postsTable {
-            counter-reset: serial-number;
-            /* Set the serial number counter to 0 */
-        }
-
-        #postsTable td:first-child:before {
-            counter-increment: serial-number;
-            /* Increment the serial number counter */
-            content: counter(serial-number);
-            /* Display the counter */
-        }
-    </style> -->
 </head>
 
 
@@ -36,12 +23,12 @@
                             <table class="table table-striped table-bordered" style="width:100%" id="postsTable">
                                 <thead class="bg-primary">
                                     <tr>
-                                        <th scope="col">Drug Name</th>
-                                        <th scope="col">Usage (Daily)</th>
-                                        <th scope="col">Duration (Days)</th>
-                                        <th scope="col">Date & Time Added</th>
-                                        <th scope="col">Action</th>
-                                        <th scope="col">Verification</th>
+                                        <th scope="col">DRUG NAME</th>
+                                        <th scope="col">USAGE (Daily)</th>
+                                        <th scope="col">DURATION (Days)</th>
+                                        <th scope="col">DATE & TIME ADDED</th>
+                                        <th scope="col">ACTION</th>
+                                        <th scope="col">VERIFICATION</th>
                                     </tr>
                                 </thead>
 
@@ -96,7 +83,6 @@
 
     <script>
         $(document).ready(function () {
-            console.log("i enter")
             $(' #postsTable').DataTable();
         }); </script>
     <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>

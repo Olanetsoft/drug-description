@@ -66,21 +66,17 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">Prescription</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="/add-prescription">Add Prescription</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/add-prescription">Add Prescription</a>
+                                </li>
                                 <li class="nav-item"><a class="nav-link" href="/all-prescription">View All
                                         Prescription</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><img class="nav-link" id="logo-me"
-                                src="<%= currentUser.photo %>"><a class="nav-link" href="#"><%= currentUser.firstName %></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Hello 👋 <%= currentUser.firstName %></a></li>
                         <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
                         <% } %>
                     </ul>
-                    <!-- <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item"><a href="#" class="search">
-                                <i class="lnr lnr-magnifier" id="search"></i></a>
-                        </li>
-                    </ul> -->
+
                 </div>
             </div>
         </nav>
