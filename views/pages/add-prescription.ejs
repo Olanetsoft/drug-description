@@ -117,9 +117,9 @@
                                         <input name="drugName" placeholder="Drug Name" onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = 'Enter the drug name'"
                                             class="common_input form-control" required="" type="text">
-                                        <input name="usage" placeholder="Drug Usage" onfocus="this.placeholder = ''"
+                                        <input name="usage" placeholder="Drug Usage (Daily)" onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = 'Enter Usage'" class="common_input form-control"
-                                            required="" type="text">
+                                            required="" type="number">
                                         <input name="duration" placeholder="Duration" onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = 'Enter the duration'"
                                             class="common_input form-control" required="" type="number">
@@ -162,9 +162,7 @@
     <!--================ End Blog Area =================-->
 
     <!--================ Start footer Area  =================-->
-    <footer class="footer-area section-gap">
-        <%- include('../templates/footer.ejs') %>
-    </footer>
+    
     <!--================ End footer Area  =================-->
 
     <!-- Optional JavaScript -->

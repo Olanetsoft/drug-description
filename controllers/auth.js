@@ -31,12 +31,12 @@ const postUserRegister = async (req, res) => {
             try {
                 const saveUser = await userCreate({ ...userDetails, password: hashedPassword });
                 if (saveUser) {
-                    const message = 'Welcome to Medicare <br> kindly click this <a href="https://medical-prescription.herokuapp.com/">Visit Site</a>';
-                    sendEmail({
-                        email,
-                        subject: 'WELCOME',
-                        message,
-                    });
+                    // const message = 'Welcome to Medicare <br> kindly click this <a href="https://medical-prescription.herokuapp.com/">Visit Site</a>';
+                    // sendEmail({
+                    //     email,
+                    //     subject: 'WELCOME',
+                    //     message,
+                    // });
                     req.flash('success', 'Registration Successful');
                     req.session.user = saveUser;
                     req.session.createdAt = Date.now();

@@ -17,6 +17,8 @@ const auth = require('./routes/auth');
 const indexRouter = require('./routes');
 const Prescription = require('./models/prescription');
 const User = require('./models/user');
+const sendEmail = require('./utils/send-email');
+
 
 
 
@@ -96,15 +98,19 @@ cron.schedule('*/2 * * * *', async () => {
     console.log('running every 2 min');
 
     const findAll = await Prescription.find().populate('creator');
-    console.log(findAll);
-    // const findAllUser = await User.find().populate('user');
-    // console.log(findAllUser);
-    const message = `Hi 🤗 <br> This is a Reminder message to take your ${this.drugName} drug as prescribe by Doctor / physician`;
-    // sendEmail({
-    //     email: this.userEmail,
-    //     subject: 'REMINDER',
-    //     message,
-    // });
+    findAll.forEach(p => {
+        if (p.creator.email === p.userEmail) {
+            // console.log(p);
+            const message = `Hello there ! <br> This is a Reminder message to take your <b> ${p.drugName}</b> drug as prescribe by Doctor / physician`;
+            console.log(message);
+            // sendEmail({
+            //     email: p.creator.email,
+            //     subject: 'REMINDER',
+            //     message,
+            // });
+
+        }
+    });
 });
 
 
