@@ -39,6 +39,7 @@
     "mongoose": "^5.10.0",
     "mongoose-slug-generator": "^1.0.4",
     "morgan": "^1.10.0",
+    "node-cron": "^2.0.3",
     "nodemailer": "^6.4.11",
     "nodemon": "^2.0.4",
     "slugify": "^1.4.5"
