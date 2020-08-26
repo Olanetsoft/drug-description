@@ -91,6 +91,26 @@ app.use(indexRouter);
 
 // ************ END ROUTE REGISTRATION ********** //
 
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+    const error = new Error('Not found');
+    error.status = 404;
+    next(error);
+});
+
+// error handler
+app.use((error, req, res,) => {
+
+    // next();
+    if (error.status === 404) {
+        console.log(error.status);
+        res.status(404).render('pages/error404');
+    }
+    else {
+        console.log(error);
+        res.status(500).render('pages/error500');
+    }
+});
 
 // Reminder every 6hrs
 cron.schedule('* */6 * * *', async () => {
@@ -111,26 +131,6 @@ cron.schedule('* */6 * * *', async () => {
     });
 });
 
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-    const error = new Error('Not found');
-    error.status = 404;
-    next(error);
-});
-
-// error handler
-app.use((error, req, res,) => {
-
-    // next();
-    if (error.status === 404) {
-        console.log(error);
-        res.status(404).render('pages/error404');
-    }
-    else {
-        console.log(error);
-        res.status(500).render('pages/error500');
-    }
-});
 
 
 module.exports = app;
