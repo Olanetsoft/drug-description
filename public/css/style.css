@@ -567,7 +567,7 @@ button:focus {
   font-weight: 700;
   font-family: "Playfair Display", serif;
   line-height: 54px;
-  color: blue;
+  color: #0ba9ff;
 }
 .home_banner_area .banner_inner .banner_content p {
   max-width: 680px;

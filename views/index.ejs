@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include('./templates/head.ejs') %>
+	<%- include('./templates/head.ejs') %>
 </head>
 
 <body>
@@ -22,11 +22,12 @@
 						smart experience <br>
 					</h2> -->
 					<h2>
-						Drug Prescription Reminder <br>
-						 Web API
+						Drug ☑<br>
+						Prescription Reminder Web API
+
 						<!-- children with our  <br>
 						smart experience -->
-						 <br>
+						<br>
 					</h2>
 					<a class="primary-btn text-uppercase" href="/add-prescription">Explore</a>
 				</div>
@@ -35,6 +36,75 @@
 	</section>
 	<!--================ End Home Banner Area =================-->
 
+
+	<!--================ Start Features Area =================-->
+	<section class="features_area section_gap">
+		<div class="container">
+			<div class="row">
+				<!-- single feature -->
+				<!-- <div class="col-lg-4 col-md-6">
+					<div class="single_feature">
+						<div class="feature_head">
+							<img src="img/features/icon1.png" alt="">
+							<h4>Emergency Services</h4>
+						</div>
+						<div class="feature_content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt ut labore et
+								dolore magna aliqua. Ut enim ad minim veniam.</p>
+							<div class="feature_btn">
+								<a href="#" class="f_btn">Call Us: 215 - 3695 - 9584</a>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<!-- single feature -->
+				<div class="col-lg-6 col-md-6">
+					<div class="single_feature">
+						<div class="feature_head">
+							<img src="/img/features/icon2.png" alt="">
+							<h4>Add Prescription</h4>
+						</div>
+						<div class="feature_content">
+							<p>Prescription drug (also prescription medication or prescription medicine) is a pharmaceutical drug that
+								 legally requires a medical prescription to be dispensed...</p>
+							<div class="feature_btn">
+								<% if (currentUser ) { %>
+								<a href="/add-prescription" class="f_btn">Learn More</a>
+								<% } %>
+								<% if (!currentUser ) { %>
+								<a href="/login" class="f_btn">Learn More</a>
+								<% } %>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- single feature -->
+				<div class="col-lg-6 col-md-6">
+					<div class="single_feature">
+						<div class="feature_head">
+							<img src="/img/features/icon3.png" alt="">
+							<h4>Online Appointment</h4>
+						</div>
+						<div class="feature_content">
+							<p>Prescription drug (also prescription medication or prescription medicine) is a pharmaceutical drug that
+								legally requires a medical prescription to be dispensed...</p>
+							<div class="feature_btn">
+								<% if (currentUser ) { %>
+									<a href="/all-prescription" class="f_btn">Learn More</a>
+									<% } %>
+									<% if (!currentUser ) { %>
+									<a href="/register" class="f_btn">Learn More</a>
+									<% } %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ End Features Area =================-->
 
 	<!--================ Start footer Area  =================-->
 	<footer class="footer-area section-gap">
