@@ -18,7 +18,6 @@ const allPrescription = async (req, res, next) => {
         // Pull user from session
         const { _id } = req.session.user
         const userfilter = { _id }
-        console.log(userfilter);
 
         const searchAll = await Prescription.find({ active: true, verify: false, creator: userfilter });
         res.render('pages/all-prescription', {

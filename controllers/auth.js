@@ -31,12 +31,12 @@ const postUserRegister = async (req, res) => {
             try {
                 const saveUser = await userCreate({ ...userDetails, password: hashedPassword });
                 if (saveUser) {
-                    // const message = `Welcome to Super Nigerians \n kindly click this <a href="https://supernigerians.com">link to continue</a>`;
-                    // sendEmail({
-                    //     email,
-                    //     subject: 'Welcome',
-                    //     message,
-                    // });
+                    const message = `Welcome to Medicare \n kindly click this <a href="https://medical-prescription.herokuapp.com/">link to continue</a>`;
+                    sendEmail({
+                        email,
+                        subject: 'WELCOME',
+                        message,
+                    });
                     req.flash('success', 'Registration Successful');
                     req.session.user = saveUser;
                     req.session.createdAt = Date.now();
