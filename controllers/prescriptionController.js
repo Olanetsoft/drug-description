@@ -17,10 +17,14 @@ const allPrescription = async (req, res, next) => {
     try {
         // Pull user from session
         const { _id } = req.session.user
-        const userfilter = { _id }
+        const userFilter = { _id }
 
-        const searchAll = await Prescription.find({ active: true, verify: false, creator: userfilter });
-        res.render('pages/all-prescription', {
+        const searchAll = await Prescription.find({
+            active: true,
+            verify: false,
+            creator: userFilter
+        });
+        return res.render('pages/all-prescription', {
             pageName: 'Add Prescription',
             path: 'addPrescription',
             data: searchAll
@@ -40,10 +44,10 @@ const postPrescription = async (req, res, next) => {
 
         // Pull user from session
         const { _id } = req.session.user
-        const userfilter = { _id }
+        const userFilter = { _id }
 
         // Find User
-        const findUser = await User.findById(userfilter)
+        const findUser = await User.findById(userFilter)
         if (!findUser) return res.send("user not found")
 
         // Data to be sent
@@ -61,18 +65,16 @@ const postPrescription = async (req, res, next) => {
 
         // Save user
         await findUser.save()
-        res.redirect('/all-prescription')
+        return res.redirect('/all-prescription')
     } catch (err) {
         const error = new Error(err);
         error.httpStatusCode = 500;
         return next(error);
-    }
+    };
 };
 
 const removePrescription = async (req, res, next) => {
-    const {
-        prescriptionId
-    } = req.params;
+    const { prescriptionId } = req.params;
     try {
         const users = await Prescription.findByIdAndUpdate(prescriptionId, {
             active: 'false'
@@ -88,9 +90,7 @@ const removePrescription = async (req, res, next) => {
 };
 
 const verifyPrescription = async (req, res, next) => {
-    const {
-        prescriptionId
-    } = req.params;
+    const { prescriptionId } = req.params;
     try {
         const users = await Prescription.findByIdAndUpdate(prescriptionId, {
             verify: 'true'

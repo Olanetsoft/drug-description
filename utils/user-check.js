@@ -6,5 +6,4 @@ exports.userCheck = (email) => {
 
 exports.userCreate = (userSave) => {
     return User.create(userSave);
-
 };

@@ -2,7 +2,6 @@
 const bcrypt = require('bcryptjs');
 const { renderPage } = require('../utils/render-page');
 const User = require('../models/user');
-const sendEmail = require('../utils/send-email');
 const { validateUserRequest, validateUserRegistration } = require('../utils/request-body-validator');
 const { userCheck, userCreate } = require('../utils/user-check');
 const { errorUserLogin, errorUserRegister } = require('../utils/response');
