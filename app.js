@@ -93,22 +93,21 @@ app.use(indexRouter);
 // ************ END ROUTE REGISTRATION ********** //
 
 
-// Reminder
-cron.schedule('*/2 * * * *', async () => {
-    console.log('running every 2 min');
+// Reminder every 6hrs
+cron.schedule('* */6 * * *', async () => {
+    console.log('running every 6 hrs');
 
+    // Find all prescription in the system
     const findAll = await Prescription.find().populate('creator');
     findAll.forEach(p => {
-        if (p.creator.email === p.userEmail) {
-            // console.log(p);
+        if (p.creator.email === p.userEmail && p.verify !== 'true') {
             const message = `Hello there ! <br> This is a Reminder message to take your <b> ${p.drugName}</b> drug as prescribe by Doctor / physician`;
-            console.log(message);
-            // sendEmail({
-            //     email: p.creator.email,
-            //     subject: 'REMINDER',
-            //     message,
-            // });
 
+            sendEmail({
+                email: p.creator.email,
+                subject: 'REMINDER',
+                message,
+            });
         }
     });
 });
