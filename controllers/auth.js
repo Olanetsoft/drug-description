@@ -2,6 +2,7 @@
 const bcrypt = require('bcryptjs');
 const { renderPage } = require('../utils/render-page');
 const User = require('../models/user');
+const sendEmail = require('../utils/send-email');
 const { validateUserRequest, validateUserRegistration } = require('../utils/request-body-validator');
 const { userCheck, userCreate } = require('../utils/user-check');
 const { errorUserLogin, errorUserRegister } = require('../utils/response');
@@ -30,6 +31,12 @@ const postUserRegister = async (req, res) => {
             try {
                 const saveUser = await userCreate({ ...userDetails, password: hashedPassword });
                 if (saveUser) {
+                    const message = `Welcome to Drug Prescription Reminder Web API <br> <br> kindly click this <a href="https://medical-prescription.herokuapp.com">Visit Site</a>`;
+                    sendEmail({
+                        email,
+                        subject: 'WELCOME 🎉',
+                        message,
+                    });
                     req.flash('success', 'Registration Successful');
                     req.session.user = saveUser;
                     req.session.createdAt = Date.now();
@@ -79,7 +86,7 @@ const postUserLogin = async (req, res, next) => {
                 .catch(() => {
                     console.log('invalid user')
                     res.redirect('/login');
-            });
+                });
         })
         .catch(err => {
             console.log(err)
