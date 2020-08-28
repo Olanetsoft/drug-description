@@ -30,7 +30,7 @@ function toRemove(prescriptionId, drugName, csrf) {
 
 function toVerify(prescriptionId, drugName, csrf) {
     swal({
-        title: `Are you sure you have completed ${drugName}?`,
+        title: `Are you sure you are done using ${drugName}?`,
         type: 'error',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
